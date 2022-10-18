@@ -1,0 +1,3 @@
+select round(lat_n,4)
+
+from ( Select Lat_N as lat_n, Rank()OVER (ORDER BY Lat_N ) AS rk FROM Station ) a where rk =(Select Ceil(count(LAT_N)/2)From Station)
