@@ -1,0 +1,9 @@
+SELECT id, age, coins_needed, power
+FROM Wands W, Wands_Property P
+WHERE W.code = P.code
+AND (age, power, coins_needed) IN (
+SELECT age, power, min(coins_needed) as minC FROM Wands W, Wands_Property P
+WHERE W.code = P.code
+AND P.is_evil = 0
+GROUP BY age, power)
+ORDER BY power desc, age desc ;
