@@ -1,0 +1,9 @@
+with cte as
+(Select sales_id
+from orders o
+left join company c
+On o.com_id = c.com_id
+where c.name LIKE 'RED')
+select name
+from salesperson
+where sales_id NOT IN(SELECT DISTINCT sales_id from cte)
