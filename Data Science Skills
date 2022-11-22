@@ -1,0 +1,2 @@
+select candidate_id from candidates where skill IN ('Python','Tableau', 'PostgreSQL')
+group by candidate_id HAVING COUNT(Skill) = 3 ORDER BY candidate_id ;
