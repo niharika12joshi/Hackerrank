@@ -1,0 +1,5 @@
+select pages.page_id
+from pages
+left outer join page_likes as likes
+on pages.page_id = likes.page_id
+where likes.page_id is NULL;
